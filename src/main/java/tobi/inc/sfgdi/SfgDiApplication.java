@@ -3,10 +3,7 @@ package tobi.inc.sfgdi;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import tobi.inc.sfgdi.Controllers.ConstructorInjectedController;
-import tobi.inc.sfgdi.Controllers.MyController;
-import tobi.inc.sfgdi.Controllers.PropertyInjectedController;
-import tobi.inc.sfgdi.Controllers.SetterInjectedController;
+import tobi.inc.sfgdi.Controllers.*;
 
 @SpringBootApplication
 public class SfgDiApplication {
@@ -14,7 +11,8 @@ public class SfgDiApplication {
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(SfgDiApplication.class, args);
 
-
+		I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+		System.out.println(i18nController.sayHello());
 
 		System.out.println("---- Primary");
 		MyController myController = (MyController) ctx.getBean("myController");
